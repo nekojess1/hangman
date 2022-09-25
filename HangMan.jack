@@ -1,0 +1,12 @@
+class HangMan{
+   
+   field String word; 
+   field String correctWords;
+
+   constructor HangMan new(){
+
+      var String title ,clue;
+
+      return this;
+   }
+}
