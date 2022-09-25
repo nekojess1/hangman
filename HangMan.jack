@@ -1,12 +1,23 @@
 class HangMan{
    
-   field String word; 
-   field String correctWords;
+   field String choicedWord;                                         
+   field String correctWords;                                        
 
-   constructor HangMan new(){
+   constructor HangMan new() {
+      var String title;                                              // game's title
+      var String clue;                                               // game's clue 
+      var int iterator;
 
-      var String title ,clue;
+      let title = "The HangMan Game";
+      let iterator = 0;
+      
+      let choicedWord = Keyboard.readLine("Enter a word: ");
+      let choicedClue = Keyboard.readLine("Enter a clue: ");
 
+      do Output.printString(title);
+      do Output.println();
+      do Output.printString(clue);
+      do Output.println();
       return this;
    }
 }
