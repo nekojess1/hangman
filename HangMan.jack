@@ -1,23 +1,78 @@
 class HangMan{
    
    field String choicedWord;                                         
-   field String correctWords;                                        
+   field String correctWords;   
+   field boolean isGameFinished;                         
 
    constructor HangMan new() {
-      var String title;                                              // game's title
-      var String clue;                                               // game's clue 
+      var String choicedClue;                                         
       var int iterator;
 
-      let title = "The HangMan Game";
       let iterator = 0;
       
       let choicedWord = Keyboard.readLine("Enter a word: ");
       let choicedClue = Keyboard.readLine("Enter a clue: ");
 
-      do Output.printString(title);
+      let correctWords = String.new(choicedWord.length());
+
+      while(iterator < (choicedWord.length())) {
+         let correctWords = correctWords.appendChar(219); 
+         let iterator = iterator+1; 
+      }
+
+      do Output.printString(choicedClue);
       do Output.println();
-      do Output.printString(clue);
-      do Output.println();
+
       return this;
    }
+
+   method void showTitle() {
+      var String title;                                           
+      let title = "The HangMan Game";
+      do Output.printString(title);
+      do Output.println();
+      return;
+      
+   }
+
+   method void createHangMan() { 
+      do Screen.setColor(true);
+      do Screen.drawRectangle(395,50,405,200);
+      do Screen.drawRectangle(300,40,405,50);
+      do Screen.drawRectangle(300,40,310,70);
+      return;
+   }
+   
+   method void createHead() {
+      do Screen.drawCircle(305,90,20);
+      return;
+   }
+
+   method void createBody() {
+      do Screen.drawLine(305,110, 305, 160);
+      return;
+   }
+   method void createRightArm()
+   {
+      do Screen.drawLine(305,135, 320, 120);
+      return;
+   }
+
+   method void createLeftArm()
+   {
+      do Screen.drawLine(305,135, 290, 120);
+      return;
+   }
+
+    method void createLeftLeg()
+   {
+      do Screen.drawLine(305,160, 285, 180);
+      return;
+   }
+
+   method void createRightLeg() {
+      do Screen.drawLine(305,160, 325, 180);
+      return;
+   }
+
 }
