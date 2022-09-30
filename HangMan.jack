@@ -1,29 +1,34 @@
 class HangMan{
    
-   field String choicedWord;                                         
-   field String correctWords;   
-   field boolean isGameFinished;                         
+   field String chosenWord;  
+   field String chosenClue;                                                                       
+   field String wordSpace;   
+   field boolean isGameFinished;      
+   field int errors;
 
    constructor HangMan new() {
-      var String choicedClue;                                         
       var int iterator;
 
       let iterator = 0;
-      
-      let choicedWord = Keyboard.readLine("Enter a word: ");
-      let choicedClue = Keyboard.readLine("Enter a clue: ");
+      do showTitle();
+      do initWordAndClue();
+      let wordSpace = String.new(chosenWord.length());
 
-      let correctWords = String.new(choicedWord.length());
-
-      while(iterator < (choicedWord.length())) {
-         let correctWords = correctWords.appendChar(219); 
+      while(iterator < (chosenWord.length())) {
+         let wordSpace = wordSpace.appendChar(219); 
          let iterator = iterator+1; 
       }
-
-      do Output.printString(choicedClue);
-      do Output.println();
-
       return this;
+   }
+
+   method void initWordAndClue() {
+      let chosenWord = Keyboard.readLine("Enter a word: ");
+      let chosenClue = Keyboard.readLine("Enter a clue: ");
+      do Screen.clearScreen();
+      do Output.moveCursor(0,0);
+      do Output.printString("Clue: ");
+      do Output.printString(chosenClue);
+      return;
    }
 
    method void showTitle() {
@@ -34,6 +39,105 @@ class HangMan{
       return;
       
    }
+
+   method void jogar() {
+      var int line;
+      var char chosedLetter;
+       
+      let errors = 0;
+      let line = 2; 
+      let isGameFinished = 0;
+      do createHangMan();
+      
+      while(~(isGameFinished)) {
+         do showWordSpace(line);
+         let chosedLetter = Keyboard.readChar();
+         let line = line + 1;
+         do Output.println();
+         do verifyLetter(chosedLetter);
+         do verifyGameIsFinished();
+      }
+      return;
+   }
+
+   method void showWordSpace(int line) {
+      do Output.moveCursor(line,0);
+      do Output.printString(wordSpace);
+      do Output.moveCursor(line,15);
+      do Output.printString("Letter: ");
+      return;
+   }
+
+   method void verifyLetter(char chosedLetter) {
+      if (~(checkWord(chosedLetter))) {
+         if (errors = 0) {
+            do createHead();
+         } 
+         if (errors = 1) {
+            do createBody();
+         } 
+         if (errors = 2) {
+            do createLeftArm();
+         }
+         if (errors = 3) {
+            do createRightArm();
+         }
+         if (errors = 4) {
+            do createLeftLeg(); 
+         }
+         if (errors   = 5) {
+            do createRightLeg();               
+            let isGameFinished = -1;
+            do gameOver();
+         }
+         let errors = errors + 1; 
+      }
+      return;
+   }
+
+   method void verifyGameIsFinished() {
+      if (completou_palavra()) {
+            do Output.printString("Congratulations! :)");
+            do Output.println();
+            do Output.printString("Chosen word: ");
+            do Output.printString(chosenWord);
+            let isGameFinished = -1;
+      }
+      return;
+   }
+
+   method boolean checkWord(char letter) { 
+      var int i;
+      var boolean acertou;
+      let i =0;
+      let acertou = 0;
+      while (i < chosenWord.length()) {
+         if (letter = chosenWord.charAt(i)) {
+            do wordSpace.setCharAt(i, letter);
+	         let acertou = -1;
+         }
+         let i=i+1;
+      }
+	  return acertou;
+   }
+   
+   method boolean completou_palavra() {
+      var int iterator;
+      let iterator = 0;
+      while (iterator < wordSpace.length()) {
+         if (wordSpace.charAt(iterator) = 219) {
+            return 0; 
+         }
+         let iterator = iterator+1;
+      }
+      return -1; 
+   }
+
+   method void gameOver() {
+      do Output.printString("Game Over! :(");
+      return;
+   }
+
 
    method void createHangMan() { 
       do Screen.setColor(true);
@@ -75,4 +179,8 @@ class HangMan{
       return;
    }
 
+   method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+   }
 }
