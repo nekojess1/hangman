@@ -141,19 +141,19 @@ class HangMan{
 
    method void createHangMan() { 
       do Screen.setColor(true);
-      do Screen.drawRectangle(395,50,405,200);
+      do Screen.drawRectangle(395,50,405,200);     // x1, y1 = top left, x2,y2 =  bottom right
       do Screen.drawRectangle(300,40,405,50);
       do Screen.drawRectangle(300,40,310,70);
       return;
    }
    
    method void createHead() {
-      do Screen.drawCircle(305,90,20);
+      do Screen.drawCircle(305,90,20);             // position x, position y, radius 
       return;
    }
 
    method void createBody() {
-      do Screen.drawLine(305,110, 305, 160);
+      do Screen.drawLine(305,110, 305, 160);       // draws a line from pixel (x1,y1) to pixel (x2,y2)
       return;
    }
    method void createRightArm()
