@@ -335,7 +335,7 @@ function HangMan.verifyGameIsFinished 0
 push argument 0
 pop pointer 0
 push pointer 0
-call HangMan.completou_palavra 1
+call HangMan.verifyDiscoveredWord 1
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
@@ -461,7 +461,7 @@ goto WHILE_EXP0
 label WHILE_END0
 push local 1
 return
-function HangMan.completou_palavra 1
+function HangMan.verifyDiscoveredWord 1
 push argument 0
 pop pointer 0
 push constant 0

@@ -96,7 +96,7 @@ class HangMan{
    }
 
    method void verifyGameIsFinished() {
-      if (completou_palavra()) {
+      if (verifyDiscoveredWord()) {
             do Output.printString("Congratulations! :)");
             do Output.println();
             do Output.printString("Chosen word: ");
@@ -121,7 +121,7 @@ class HangMan{
 	  return acertou;
    }
    
-   method boolean completou_palavra() {
+   method boolean verifyDiscoveredWord() {
       var int iterator;
       let iterator = 0;
       while (iterator < wordSpace.length()) {
