@@ -15,7 +15,7 @@ class HangMan{
       let wordSpace = String.new(chosenWord.length());
 
       while(iterator < (chosenWord.length())) {
-         let wordSpace = wordSpace.appendChar(219); 
+         let wordSpace = wordSpace.appendChar(95); 
          let iterator = iterator+1; 
       }
       return this;
@@ -125,7 +125,7 @@ class HangMan{
       var int iterator;
       let iterator = 0;
       while (iterator < wordSpace.length()) {
-         if (wordSpace.charAt(iterator) = 219) {
+         if (wordSpace.charAt(iterator) = 95) {
             return 0; 
          }
          let iterator = iterator+1;

@@ -22,7 +22,7 @@ lt
 not
 if-goto WHILE_END0
 push this 2
-push constant 219
+push constant 95
 call String.appendChar 2
 pop this 2
 push local 0
@@ -476,7 +476,7 @@ if-goto WHILE_END0
 push this 2
 push local 0
 call String.charAt 2
-push constant 219
+push constant 95
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
