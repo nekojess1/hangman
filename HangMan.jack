@@ -15,7 +15,7 @@ class HangMan{
       let wordSpace = String.new(chosenWord.length());
 
       while(iterator < (chosenWord.length())) {
-         let wordSpace = wordSpace.appendChar(95); 
+         let wordSpace = wordSpace.appendChar(95);          // ASCII
          let iterator = iterator+1; 
       }
       return this;
@@ -40,7 +40,7 @@ class HangMan{
       
    }
 
-   method void jogar() {
+   method void play() {
       var int line;
       var char chosedLetter;
        
@@ -85,7 +85,7 @@ class HangMan{
          if (errors = 4) {
             do createLeftLeg(); 
          }
-         if (errors   = 5) {
+         if (errors = 5) {
             do createRightLeg();               
             let isGameFinished = -1;
             do gameOver();
@@ -107,18 +107,18 @@ class HangMan{
    }
 
    method boolean checkWord(char letter) { 
-      var int i;
-      var boolean acertou;
-      let i =0;
-      let acertou = 0;
-      while (i < chosenWord.length()) {
-         if (letter = chosenWord.charAt(i)) {
-            do wordSpace.setCharAt(i, letter);
-	         let acertou = -1;
+      var int iterator;
+      var boolean hit;
+      let iterator =0;
+      let hit = 0;
+      while (iterator < chosenWord.length()) {
+         if (letter = chosenWord.charAt(iterator)) {
+            do wordSpace.setCharAt(iterator, letter);
+	         let hit = -1;
          }
-         let i=i+1;
+         let iterator=iterator+1;
       }
-	  return acertou;
+	  return hit;
    }
    
    method boolean verifyDiscoveredWord() {
@@ -141,41 +141,41 @@ class HangMan{
 
    method void createHangMan() { 
       do Screen.setColor(true);
-      do Screen.drawRectangle(395,50,405,200);     // x1, y1 = top left, x2,y2 =  bottom right
-      do Screen.drawRectangle(300,40,405,50);
-      do Screen.drawRectangle(300,40,310,70);
+      do Screen.drawRectangle(400,50,410,200);     // x1, y1 = top left, x2,y2 =  bottom right
+      do Screen.drawRectangle(305,40,410,50);
+      do Screen.drawRectangle(305,40,315,70);
       return;
    }
    
    method void createHead() {
-      do Screen.drawCircle(305,90,20);             // position x, position y, radius 
+      do Screen.drawCircle(310,90,20);             // position x, position y, radius 
       return;
    }
 
    method void createBody() {
-      do Screen.drawLine(305,110, 305, 160);       // draws a line from pixel (x1,y1) to pixel (x2,y2)
+      do Screen.drawLine(310,110, 310, 160);       // draws a line from pixel (x1,y1) to pixel (x2,y2)
       return;
    }
    method void createRightArm()
    {
-      do Screen.drawLine(305,135, 320, 120);
+      do Screen.drawLine(310,135, 325, 120);
       return;
    }
 
    method void createLeftArm()
    {
-      do Screen.drawLine(305,135, 290, 120);
+      do Screen.drawLine(310,135, 295, 120);
       return;
    }
 
     method void createLeftLeg()
    {
-      do Screen.drawLine(305,160, 285, 180);
+      do Screen.drawLine(310,160, 290, 180);
       return;
    }
 
    method void createRightLeg() {
-      do Screen.drawLine(305,160, 325, 180);
+      do Screen.drawLine(310,160, 330, 180);
       return;
    }
 

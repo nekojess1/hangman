@@ -2,7 +2,7 @@ class Main {
    function void main() {
       var HangMan game;
       let game = HangMan.new();
-      do game.jogar();
+      do game.play();
       do game.dispose();
       return;
    }

@@ -172,7 +172,7 @@ call Output.println 0
 pop temp 0
 push constant 0
 return
-function HangMan.jogar 2
+function HangMan.play 2
 push argument 0
 pop pointer 0
 push constant 0
@@ -535,21 +535,21 @@ push constant 0
 not
 call Screen.setColor 1
 pop temp 0
-push constant 395
+push constant 400
 push constant 50
-push constant 405
+push constant 410
 push constant 200
 call Screen.drawRectangle 4
 pop temp 0
-push constant 300
+push constant 305
 push constant 40
-push constant 405
+push constant 410
 push constant 50
 call Screen.drawRectangle 4
 pop temp 0
-push constant 300
+push constant 305
 push constant 40
-push constant 310
+push constant 315
 push constant 70
 call Screen.drawRectangle 4
 pop temp 0
@@ -558,7 +558,7 @@ return
 function HangMan.createHead 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 90
 push constant 20
 call Screen.drawCircle 3
@@ -568,9 +568,9 @@ return
 function HangMan.createBody 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 110
-push constant 305
+push constant 310
 push constant 160
 call Screen.drawLine 4
 pop temp 0
@@ -579,9 +579,9 @@ return
 function HangMan.createRightArm 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 135
-push constant 320
+push constant 325
 push constant 120
 call Screen.drawLine 4
 pop temp 0
@@ -590,9 +590,9 @@ return
 function HangMan.createLeftArm 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 135
-push constant 290
+push constant 295
 push constant 120
 call Screen.drawLine 4
 pop temp 0
@@ -601,9 +601,9 @@ return
 function HangMan.createLeftLeg 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 160
-push constant 285
+push constant 290
 push constant 180
 call Screen.drawLine 4
 pop temp 0
@@ -612,9 +612,9 @@ return
 function HangMan.createRightLeg 0
 push argument 0
 pop pointer 0
-push constant 305
+push constant 310
 push constant 160
-push constant 325
+push constant 330
 push constant 180
 call Screen.drawLine 4
 pop temp 0
